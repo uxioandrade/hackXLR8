@@ -1,0 +1,75 @@
+[2019-06-10 11:49:42,892] INFO org.github.dragos.vscode.Main$ - Starting server in /Users/Uxio/Documents/london
+[2019-06-10 11:49:42,892] INFO org.github.dragos.vscode.Main$ - Starting server in /Users/Uxio/Documents/london
+[2019-06-10 11:49:42,903] INFO org.github.dragos.vscode.Main$ - Classpath: /Users/Uxio/.vscode/extensions/dragos.scala-lsp-0.2.3/coursier
+[2019-06-10 11:49:42,903] INFO org.github.dragos.vscode.Main$ - Classpath: /Users/Uxio/.vscode/extensions/dragos.scala-lsp-0.2.3/coursier
+[2019-06-10 11:49:43,113] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 1185
+[2019-06-10 11:49:43,113] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 1185
+[2019-06-10 11:49:43,142] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","id":0,"method":"initialize","params":{"processId":20591,"rootPath":"/Users/Uxio/Documents/london","rootUri":"file:///Users/Uxio/Documents/london","capabilities":{"workspace":{"applyEdit":true,"didChangeConfiguration":{"dynamicRegistration":false},"didChangeWatchedFiles":{"dynamicRegistration":false},"symbol":{"dynamicRegistration":true},"executeCommand":{"dynamicRegistration":true}},"textDocument":{"synchronization":{"dynamicRegistration":true,"willSave":true,"willSaveWaitUntil":true,"didSave":true},"completion":{"dynamicRegistration":true,"completionItem":{"snippetSupport":true}},"hover":{"dynamicRegistration":true},"signatureHelp":{"dynamicRegistration":true},"references":{"dynamicRegistration":true},"documentHighlight":{"dynamicRegistration":true},"documentSymbol":{"dynamicRegistration":true},"formatting":{"dynamicRegistration":true},"rangeFormatting":{"dynamicRegistration":true},"onTypeFormatting":{"dynamicRegistration":true},"definition":{"dynamicRegistration":true},"codeAction":{"dynamicRegistration":true},"codeLens":{"dynamicRegistration":true},"documentLink":{"dynamicRegistration":true},"rename":{"dynamicRegistration":true}}},"trace":"off"}}
+[2019-06-10 11:49:43,142] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","id":0,"method":"initialize","params":{"processId":20591,"rootPath":"/Users/Uxio/Documents/london","rootUri":"file:///Users/Uxio/Documents/london","capabilities":{"workspace":{"applyEdit":true,"didChangeConfiguration":{"dynamicRegistration":false},"didChangeWatchedFiles":{"dynamicRegistration":false},"symbol":{"dynamicRegistration":true},"executeCommand":{"dynamicRegistration":true}},"textDocument":{"synchronization":{"dynamicRegistration":true,"willSave":true,"willSaveWaitUntil":true,"didSave":true},"completion":{"dynamicRegistration":true,"completionItem":{"snippetSupport":true}},"hover":{"dynamicRegistration":true},"signatureHelp":{"dynamicRegistration":true},"references":{"dynamicRegistration":true},"documentHighlight":{"dynamicRegistration":true},"documentSymbol":{"dynamicRegistration":true},"formatting":{"dynamicRegistration":true},"rangeFormatting":{"dynamicRegistration":true},"onTypeFormatting":{"dynamicRegistration":true},"definition":{"dynamicRegistration":true},"codeAction":{"dynamicRegistration":true},"codeLens":{"dynamicRegistration":true},"documentLink":{"dynamicRegistration":true},"rename":{"dynamicRegistration":true}}},"trace":"off"}}
+[2019-06-10 11:49:43,671] INFO org.github.dragos.vscode.EnsimeLanguageServer - Initialized with 20591, /Users/Uxio/Documents/london, ClientCapabilities()
+[2019-06-10 11:49:43,671] INFO org.github.dragos.vscode.EnsimeLanguageServer - Initialized with 20591, /Users/Uxio/Documents/london, ClientCapabilities()
+[2019-06-10 11:49:43,672] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - ensime.config = "/Users/Uxio/Documents/london/.ensime" 
+[2019-06-10 11:49:43,672] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - ensime.config = "/Users/Uxio/Documents/london/.ensime" 
+[2019-06-10 11:49:44,246] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+[2019-06-10 11:49:44,431] ERROR org.github.dragos.vscode.EnsimeLanguageServer - initializeEnsime Error: /Users/Uxio/Documents/london/.ensime
+[2019-06-10 11:49:44,431] ERROR org.github.dragos.vscode.EnsimeLanguageServer - initializeEnsime Error: /Users/Uxio/Documents/london/.ensime
+[2019-06-10 11:49:44,515] DEBUG langserver.core.MessageWriter - Content-Length: 146
+
+
+
+{"jsonrpc":"2.0","method":"window/showMessage","params":{"tpe":1,"message":"No .ensime file in directory. Run `sbt ensimeConfig` to create one."}}
+[2019-06-10 11:49:44,515] DEBUG langserver.core.MessageWriter - Content-Length: 146
+
+
+
+{"jsonrpc":"2.0","method":"window/showMessage","params":{"tpe":1,"message":"No .ensime file in directory. Run `sbt ensimeConfig` to create one."}}
+[2019-06-10 11:49:44,515] DEBUG langserver.core.MessageWriter - payload: {"jsonrpc":"2.0","method":"window/showMessage","params":{"tpe":1,"message":"No .ensime file in directory. Run `sbt ensimeConfig` to create one."}}
+[2019-06-10 11:49:44,515] DEBUG langserver.core.MessageWriter - payload: {"jsonrpc":"2.0","method":"window/showMessage","params":{"tpe":1,"message":"No .ensime file in directory. Run `sbt ensimeConfig` to create one."}}
+[2019-06-10 11:49:44,608] DEBUG langserver.core.MessageWriter - Content-Length: 441
+
+
+
+{"jsonrpc":"2.0","result":{"capabilities":{"textDocumentSync":1,"hoverProvider":true,"completionProvider":{"resolveProvider":false,"triggerCharacters":["."]},"definitionProvider":true,"referencesProvider":false,"documentHighlightProvider":false,"documentSymbolProvider":true,"workspaceSymbolProvider":false,"codeActionProvider":false,"documentFormattingProvider":false,"documentRangeFormattingProvider":false,"renameProvider":false}},"id":0}
+[2019-06-10 11:49:44,608] DEBUG langserver.core.MessageWriter - Content-Length: 441
+
+
+
+{"jsonrpc":"2.0","result":{"capabilities":{"textDocumentSync":1,"hoverProvider":true,"completionProvider":{"resolveProvider":false,"triggerCharacters":["."]},"definitionProvider":true,"referencesProvider":false,"documentHighlightProvider":false,"documentSymbolProvider":true,"workspaceSymbolProvider":false,"codeActionProvider":false,"documentFormattingProvider":false,"documentRangeFormattingProvider":false,"renameProvider":false}},"id":0}
+[2019-06-10 11:49:44,608] DEBUG langserver.core.MessageWriter - payload: {"jsonrpc":"2.0","result":{"capabilities":{"textDocumentSync":1,"hoverProvider":true,"completionProvider":{"resolveProvider":false,"triggerCharacters":["."]},"definitionProvider":true,"referencesProvider":false,"documentHighlightProvider":false,"documentSymbolProvider":true,"workspaceSymbolProvider":false,"codeActionProvider":false,"documentFormattingProvider":false,"documentRangeFormattingProvider":false,"renameProvider":false}},"id":0}
+[2019-06-10 11:49:44,608] DEBUG langserver.core.MessageWriter - payload: {"jsonrpc":"2.0","result":{"capabilities":{"textDocumentSync":1,"hoverProvider":true,"completionProvider":{"resolveProvider":false,"triggerCharacters":["."]},"definitionProvider":true,"referencesProvider":false,"documentHighlightProvider":false,"documentSymbolProvider":true,"workspaceSymbolProvider":false,"codeActionProvider":false,"documentFormattingProvider":false,"documentRangeFormattingProvider":false,"renameProvider":false}},"id":0}
+[2019-06-10 11:49:44,611] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 52
+[2019-06-10 11:49:44,611] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 52
+[2019-06-10 11:49:44,612] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"initialized","params":{}}
+[2019-06-10 11:49:44,612] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"initialized","params":{}}
+[2019-06-10 11:49:44,631] ERROR org.github.dragos.vscode.EnsimeLanguageServer - Unknown notification Initialized()
+[2019-06-10 11:49:44,631] ERROR org.github.dragos.vscode.EnsimeLanguageServer - Unknown notification Initialized()
+[2019-06-10 16:49:47,793] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 58
+[2019-06-10 16:49:47,793] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 58
+[2019-06-10 16:49:47,912] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","id":1,"method":"shutdown","params":null}
+[2019-06-10 16:49:47,912] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","id":1,"method":"shutdown","params":null}
+[2019-06-10 16:49:48,625] INFO langserver.core.MessageReader - End of stream, terminating thread
+[2019-06-10 16:49:48,625] INFO langserver.core.MessageReader - End of stream, terminating thread
+[2019-06-10 16:49:48,674] DEBUG langserver.core.MessageWriter - Content-Length: 198
+
+
+
+{"jsonrpc":"2.0","error":{"code":-32602,"message":"Invalid params","data":{"meaning":"Invalid method parameter(s).","error":{"obj":[{"msg":["command parameters must be given"],"args":[]}]}}},"id":1}
+[2019-06-10 16:49:48,674] DEBUG langserver.core.MessageWriter - Content-Length: 198
+
+
+
+{"jsonrpc":"2.0","error":{"code":-32602,"message":"Invalid params","data":{"meaning":"Invalid method parameter(s).","error":{"obj":[{"msg":["command parameters must be given"],"args":[]}]}}},"id":1}
+[2019-06-10 16:49:48,674] DEBUG langserver.core.MessageWriter - payload: {"jsonrpc":"2.0","error":{"code":-32602,"message":"Invalid params","data":{"meaning":"Invalid method parameter(s).","error":{"obj":[{"msg":["command parameters must be given"],"args":[]}]}}},"id":1}
+[2019-06-10 16:49:48,674] DEBUG langserver.core.MessageWriter - payload: {"jsonrpc":"2.0","error":{"code":-32602,"message":"Invalid params","data":{"meaning":"Invalid method parameter(s).","error":{"obj":[{"msg":["command parameters must be given"],"args":[]}]}}},"id":1}
+[2019-06-10 16:49:48,680] INFO org.github.dragos.vscode.EnsimeLanguageServer - Shutdown request
+[2019-06-10 16:49:48,680] INFO org.github.dragos.vscode.EnsimeLanguageServer - Shutdown request
+[2019-06-10 16:49:48,703] INFO org.github.dragos.vscode.EnsimeLanguageServer - Shutting down actor system.
+[2019-06-10 16:49:48,703] INFO org.github.dragos.vscode.EnsimeLanguageServer - Shutting down actor system.
+[2019-06-10 16:49:48,833] INFO org.github.dragos.vscode.EnsimeLanguageServer - Actor system down.
+[2019-06-10 16:49:48,833] INFO org.github.dragos.vscode.EnsimeLanguageServer - Actor system down.
