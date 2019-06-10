@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from flask.ext.script import Manager, prompt_bool, Shell, Server
 from termcolor import colored
 
