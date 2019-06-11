@@ -1,5 +1,7 @@
-from youtube_transcript_api import YouTubeTranscriptApi
+from transcript.youtube_transcript_api._api import YouTubeTranscriptApi as yt
 
-list = YouTubeTranscriptApi.get_transcript("uIb1JU9j-Bk", languages=['en','es'])
-
-print(list)
+seeYouLater_ClashOfClans_videoId = "uIb1JU9j-Bk"
+try:
+    list = yt.get_transcript("QXSDT3v8wsQ")
+except yt.CouldNotRetrieveTranscript as err:
+    print("ERROR: ", err)
