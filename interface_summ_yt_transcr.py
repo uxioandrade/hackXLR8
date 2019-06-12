@@ -108,24 +108,27 @@ def control_f(transcript_from_yt, keyword):
 ################################################################################
 #   FUNCTION NAME: summ_transcript_keywords
 #   INPUT:
-#       · transcript_list - dictionary of
-#       · keyword - keyword to search on the transcript
+#       · transcript_list - dictionary of youtube transcripts
+#       · word_counter (optional) - number of words of the summary (default: 100)
+#       · number_keywords (optional) - number of keywords to search (default: 4)
 #   OUTPUT:
-#       · list of video timestamps where the keyword is mentioned
+#       · summarize and the list of found keywords
 #   DESCRIPTION:
-#       · It looks for all the keyword appeareances and stores its timestamps
-#         in a list that it's returned
+#       · It uses several machine learning algorithms in order to summarize a
+#         given transcript and detect the keywords of the summary
 ################################################################################
-def summ_transcript_keywords(transcript_list , counter = 100 , number_keywords = 4):
+def summ_transcript_keywords(transcript_list , word_counter = 100 , number_keywords = 4):
 
     lista = transcript_to_text(transcript_list)
 
-    summary = summarize(lista , word_count = counter ).capitalize()
+    summary = summarize(lista , word_count = word_counter).capitalize()
     re.sub(r"(?:^|(?:[.!?'\n']\s+))(.)",lambda m: m.group(0).upper(), summary)
     keywords_list = keywords(lista , words = number_keywords , lemmatize=True)
 
     return summary, keywords_list
 
+
+# Testing
 if __name__ == "__main__":
     videoId_example = "https://www.youtube.com/watch?v=U51MSK6nSQE"
     lst = access_youtube_transcript(videoId_example)
