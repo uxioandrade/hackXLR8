@@ -39,3 +39,8 @@ class User(db.Model, UserMixin):
     def is_paid(self):
         return self.paid
 
+
+class Video(url):
+    '''A link to the video'''
+    url = url
+
