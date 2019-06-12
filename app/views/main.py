@@ -6,14 +6,14 @@ from flask import (Blueprint, render_template, redirect, request, url_for,
                    abort, flash)
 
 from app import interface_sum_yt_transcr as i_sum
-
+from app.srclib import tagtog_lib as tg
 
 @app.route('/',methods=['GET','POST'])
 @app.route('/index',methods=['GET','POST'])
 def index():
     if(request.method == 'GET'):
         if request.form.get('submit_button'):
-            summary_text = 'para que sirve flask'
+            summary_text = ""
             return render_template('summary.html',content=summary_text)
         else:
             return render_template('index.html', title='Home')
@@ -22,7 +22,6 @@ def index():
             link = request.form['url']
             summary_text = i_sum.summarize_from_url(link)
             keywords = i_sum.get_keywords_from_uril(link)
-            print(keywords)
             return render_template('summary.html',content=summary_text,claves=keywords)
         else:
             return render_template('index.html', title='Home')
@@ -68,6 +67,12 @@ def map_refresh():
               for _ in range(random.randint(2, 9))]
     return jsonify({'points': points})
 
-@app.route('/tagtog')
+@app.route('/tagtog',methods=['GET','POST'])
 def tagtog():
+    if(request.method == 'GET'):
+        return render_template('tagtog.html', title='Tagtog')    
+    elif(request.method == 'POST'):
+        link = request.form['url']
+        tagtog_url = tg.send_text_to_annotate(link)
+        return redirect(tagtog_url.text, code=302)
     return render_template('tagtog.html', title='Tagtog')
