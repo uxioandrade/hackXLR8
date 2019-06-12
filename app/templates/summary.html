@@ -29,8 +29,10 @@
     
         
     {% if content %}
-        <h3>The summary of the video is {{ content }}!</h3>
+        <h3>The summary of the video is {{ content }}</h3>
     {% endif %}
-    
 
+    {% if claves %}
+        <h4>keywords {{ claves }}</h3>
+    {% endif %}
 {% endblock %}

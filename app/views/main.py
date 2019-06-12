@@ -21,7 +21,9 @@ def index():
         if(request.form.get('upvote')):
             link = request.form['url']
             summary_text = i_sum.summarize_from_url(link)
-            return render_template('summary.html',content=summary_text)
+            keywords = i_sum.get_keywords_from_uril(link)
+            print(keywords)
+            return render_template('summary.html',content=summary_text,claves=keywords)
         else:
             return render_template('index.html', title='Home')
     else:
