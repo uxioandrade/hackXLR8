@@ -14,8 +14,12 @@
 
 	<form>
 		<label for="url">URL</label>
-		  <input type="text" id="fname" name="url" placeholder="Please...">
-		  <input type="submit" value="Submit">
+		  <form action="/index" method="POST">
+			<input type="text" id="fname" name="url">  
+		</form>
+		<form action="" method="post">
+				<input type="submit" name="upvote" value="Start" />
+			</form>
 	</form>
 
 {% endblock %}

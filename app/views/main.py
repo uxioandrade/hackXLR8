@@ -4,13 +4,24 @@ import random
 #import requests
 from flask import (Blueprint, render_template, redirect, request, url_for,
                    abort, flash)
-from app.interface_sum_yt_transcr import summarize_from_url
 
-@app.route('/')
-@app.route('/index')
+from app import interface_sum_yt_transcr as i_sum
+
+
+@app.route('/',methods=['GET','POST'])
+@app.route('/index',methods=['GET','POST'])
 def index():
-    if(request.form['url'] == 'POST'):
-        summary_text = 'para que sirve flask'
+    if(request.method == 'GET'):
+        print('asdfasdf')
+        print(request.form.get('submit_button'))
+        if request.form.get('submit_button'):
+            print('hola')
+            summary_text = 'para que sirve flask'
+            return render_template('summary.html',content=summary_text)
+        else:
+            return render_template('index.html', title='Home')
+    elif(request.method == 'POST'):
+        summary_text = i_sum.summarize_from_url("https://www.youtube.com/watch?v=LDBojdBAjXU")
         return render_template('summary.html',content=summary_text)
     else:
         return render_template('index.html', title='Home')
@@ -21,9 +32,16 @@ def map():
 
 @app.route('/summary/<string:url>')
 def sum_up(url):
+    summary_text = 'para que sirve flask'
     #summary_text = summarize_from_url("https://www.youtube.com/watch?v=al0CVsiffu8")
     return render_template('summary.html',content=summary_text)
-
+'''
+@app.route('/url/<string:link_video>')
+def sum_up_video(link_video):
+    summary_text = link_video
+    #summary_text = summarize_from_url("https://www.youtube.com/watch?v=al0CVsiffu8")
+    return render_template('summary.html',content=summary_text)
+'''
 '''
 if request.method == 'POST':
         if request.form['submit_button'] == 'Do Something':
