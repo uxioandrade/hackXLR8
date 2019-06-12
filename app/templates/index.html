@@ -6,50 +6,55 @@
 
 {% block content %}
 
-<table style="width:100%">
-	<tr>
-		<th>
-			<div class="item" style="font-family: Roboto; font-size: 43px; line-height: 50.390625px;text-align: CENTER;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
-				Online video
-			</div>
-		</th>
-		<th>
-				<div class="item" style="font-family: Roboto; font-size: 43px; line-height: 50.390625px;text-align: CENTER;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
-						Summary
-				</div>
-		</th>
-	</tr>
-	<tr>
-		<td>Aquí va la mierda del vídeo</td>
-		<td>
-				<div class="item" style="overflow-y: scroll; height:400px;">
-					Aquí va la mierda del resumen
-				</div>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<label for="url">URL</label>
-			<form action="" method="post">
-					<input type="text" id="fname" name="url">  
-					<input type="submit" name="upvote" value="Start" />
-					<input type="submit" name="downvote" value="Clean video" />
-			</form>
-		</td>
-	</tr>
-		<!--<form>
-		  <form action="/index" method="POST">
-		</form>-->
-		
+<h1 class="ui header">{{ title }}</h1>
 
-		<form action="" method="post">
-			
-		</form>
-	</form>
+	<!--{% if current_user.is_authenticated %}
+	  	<h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
+	{% endif %}-->
 
-	</tr>
-</table>
+	<table style="width:100%">
+            <tr>
+                <th>
+                    <div class="item" style="font-family: Roboto; font-size: 43px; line-height: 50.390625px;text-align: CENTER;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                        Online video
+                    </div>
+                </th>
+                <th>
+                        <div class="item" style="font-family: Roboto; font-size: 43px; line-height: 50.390625px;text-align: CENTER;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                                Summary
+                        </div>
+                </th>
+            </tr>
+            <tr>
+                <td>Aquí va la mierda del vídeo</td>
+                <td>
+						<div class="item" style="overflow-y: scroll; position: absolute; right: 0px; height:400px;width:500px;margin-right: 50px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+							Resumen
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="url">URL</label>
+                    <form action="" method="post">
+                            <input type="text" id="fname" name="url">  
+                            <input type="submit" name="upvote" value="Start" />
+                            <input type="submit" name="downvote" value="Clean video" />
+                    </form>
+                </td>
+                <td>
+                    Puede ser que aquí vayan las mierdas de highlights
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="item" style="position: absolute;bottom: 0;
+                    left: 0; height:400px;width:500px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                            keywords
+                    </div>
+                </td>
+            </tr>
+        </table>
 
 
-	
 {% endblock %}
