@@ -18,9 +18,12 @@ def index():
         else:
             return render_template('index.html', title='Home')
     elif(request.method == 'POST'):
-        link = request.form['url']
-        summary_text = i_sum.summarize_from_url(link)
-        return render_template('summary.html',content=summary_text)
+        if(request.form.get('upvote')):
+            link = request.form['url']
+            summary_text = i_sum.summarize_from_url(link)
+            return render_template('summary.html',content=summary_text)
+        else:
+            return render_template('index.html', title='Home')
     else:
         return render_template('index.html', title='Home')
 
