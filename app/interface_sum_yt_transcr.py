@@ -13,7 +13,6 @@ import sys
 import json
 import requests
 from yt_transcript.youtube_transcript_api._api import YouTubeTranscriptApi as yt
-from app
 
 # Defining global variables
 KEYWORD = sys.argv[1]
@@ -73,8 +72,9 @@ def control_f(transcript_from_yt):
 
 def summarize_from_url(video_id):
     lista = access_youtube_transcript(video_id)
-    lista = transcript_to_text(lista)
-    return sum_bot_call(lista)
+    lista2 = transcript_to_text(lista)
+    summarize = sum_bot_call(lista2)
+    return summarize[0].get("summary")
 
 if __name__ == "__main__":
 

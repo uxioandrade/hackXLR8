@@ -16,6 +16,11 @@
 		<label for="url">URL</label>
 		  <input type="text" id="fname" name="url" placeholder="Please...">
 		  <input type="submit" value="Submit">
-	</form>
+    </form>
+    
+    {% if content %}
+        <h3>The summary of the video is {{ content }}!</h3>
+    {% endif %}
+    
 
 {% endblock %}
