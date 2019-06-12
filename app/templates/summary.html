@@ -14,12 +14,16 @@
 
 	<form>
 		<label for="url">URL</label>
-		  <form action="/index" method="POST">
-			<input type="text" id="fname" name="url">  
-		</form>
-		<form action="" method="post">
-				<input type="submit" name="upvote" value="Start" />
-			</form>
-	</form>
+		  <input type="text" id="fname" name="url" placeholder="Please...">
+    </form>
+
+    <form action="" method="post">
+            <input type="submit" name="upvote" value="Start" />
+        </form>
+    
+    {% if content %}
+        <h3>The summary of the video is {{ content }}!</h3>
+    {% endif %}
+    
 
 {% endblock %}

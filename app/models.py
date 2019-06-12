@@ -39,3 +39,5 @@ class User(db.Model, UserMixin):
     def is_paid(self):
         return self.paid
 
+
+
