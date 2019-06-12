@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="ui header">{{ title }}</h1>
+
+	<form>
+			<label for="url">URL</label>
+			  <form action="/index" method="POST">
+			</form>
+			<form action="" method="post">
+					<input type="text" id="fname" name="url">  
+					<input type="submit" name="upvote" value="Start" />
+			</form>
+
+{% endblock %}

@@ -68,6 +68,6 @@ def map_refresh():
               for _ in range(random.randint(2, 9))]
     return jsonify({'points': points})
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html', title='Contact')
+@app.route('/tagtog')
+def tagtog():
+    return render_template('tagtog.html', title='Tagtog')
