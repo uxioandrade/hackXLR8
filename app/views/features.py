@@ -31,3 +31,5 @@ def signin():
 @featurebp.route('/index',methods=['GET','POST'])
 def submit():
     form = feature_forms.Submission()
+    if form.validate_on_submit():
+        
