@@ -13,14 +13,21 @@
 	{% endif %}-->
 
 	<form>
-		<label for="url">URL</label>
-		  <input type="text" id="fname" name="url" placeholder="Please...">
-    </form>
-
-    <form action="" method="post">
-            <input type="submit" name="upvote" value="Start" />
+            <label for="url">URL</label>
+              <form action="/index" method="POST">
+            </form>
+            <form action="" method="post">
+                    <input type="text" id="fname" name="url">  
+                    <input type="submit" name="upvote" value="Start" />
+                </form>
+    
+            <form action="" method="post">
+                <input type="submit" name="downvote" value="Clean video" />
+            </form>
         </form>
     
+    
+        
     {% if content %}
         <h3>The summary of the video is {{ content }}!</h3>
     {% endif %}
