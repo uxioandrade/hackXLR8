@@ -49,3 +49,11 @@ body {
 .error-box {
    margin-top: 8%;
 }
+
+.main-words{
+   font-family: Roboto; 
+   font-size: 43px; 
+   line-height: 50.390625px; 
+   text-align: CENTER; 
+   color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);
+}

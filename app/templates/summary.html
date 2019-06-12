@@ -12,28 +12,51 @@
 	  	<h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
 	{% endif %}-->
 
-	<form>
-            <label for="url">URL</label>
-              <form action="/index" method="POST">
-            </form>
-            <form action="" method="post">
-                    <input type="text" id="fname" name="url">  
-                    <input type="submit" name="upvote" value="Start" />
-                </form>
-    
-            <form action="" method="post">
-                <input type="submit" name="downvote" value="Clean video" />
-            </form>
-        </form>
-    
-    
-        
-    {% if content %}
-        <h3>The summary of the video is {{ content }}</h3>
-    {% endif %}
-
-    {% if claves %}
-        <p>viva españa</p>
-        <h4>keywords {{ claves }}</h3>
-    {% endif %}
+	<table style="width:100%">
+            <tr>
+                <th>
+                    <div class="item" style="font-family: Roboto; font-size: 43px; line-height: 50.390625px;text-align: CENTER;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                        Online video
+                    </div>
+                </th>
+                <th>
+                        <div class="item" style="font-family: Roboto; font-size: 43px; line-height: 50.390625px;text-align: CENTER;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                                Summary
+                        </div>
+                </th>
+            </tr>
+            <tr>
+                <td>Aquí va la mierda del vídeo</td>
+                <td>
+                        <div class="item" style="overflow-y: scroll; position: absolute; right: 0px; height:400px;width:500px;margin-right: 50px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                            {% if content %}
+                                The summary of the video is {{ content }}
+                            {% endif %}
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="url">URL</label>
+                    <form action="" method="post">
+                            <input type="text" id="fname" name="url">  
+                            <input type="submit" name="upvote" value="Start" />
+                            <input type="submit" name="downvote" value="Clean video" />
+                    </form>
+                </td>
+                <td>
+                    Puede ser que aquí vayan las mierdas de highlights
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="item" style="position: absolute;bottom: 0;
+                    left: 0; height:400px;width:500px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                            {% if claves %}
+                            keywords {{ claves }}
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+        </table>
 {% endblock %}
