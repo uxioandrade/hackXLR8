@@ -12,16 +12,14 @@ from app import interface_sum_yt_transcr as i_sum
 @app.route('/index',methods=['GET','POST'])
 def index():
     if(request.method == 'GET'):
-        print('asdfasdf')
-        print(request.form.get('submit_button'))
         if request.form.get('submit_button'):
-            print('hola')
             summary_text = 'para que sirve flask'
             return render_template('summary.html',content=summary_text)
         else:
             return render_template('index.html', title='Home')
     elif(request.method == 'POST'):
-        summary_text = i_sum.summarize_from_url("https://www.youtube.com/watch?v=LDBojdBAjXU")
+        link = request.form['url']
+        summary_text = i_sum.summarize_from_url(link)
         return render_template('summary.html',content=summary_text)
     else:
         return render_template('index.html', title='Home')
