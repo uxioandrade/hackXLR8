@@ -127,4 +127,4 @@ def get_keywords_from_uril(video_id):
     lista = access_youtube_transcript(video_id)
     lista2 = transcript_to_text(lista)
     summarize = summ_bot_call(lista2)
-    return summarize[0].get("summary")[1].get("keywords")
+    return summarize[1].get("keywords")
