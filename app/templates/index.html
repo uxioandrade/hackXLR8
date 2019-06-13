@@ -16,10 +16,10 @@
 	  	<h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
 	{% endif %}-->
 	<table style="height:100%; width:100%;caption-side: bottom; margin-bottom: 10%;">
-		<caption >
+		<caption style="text-align: center; margin-left: 0%">
 				<div class="item" style="position: relative;bottom: 0x;
 				left: 0; height:400px;width:500px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
-						
+                    The keywords of the video are: protestants wars force swedish
 				</div>
 		</caption>
             <tr>
@@ -52,20 +52,20 @@
                 <td><div id="player"></div></td>
                 <td>
 						<div class="item" style="overflow-y: scroll; height:400px;width:500px;margin-right: 50px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
-							Resumen
+							Power war running between spain and the netherlands who had resumed the eighty years war it seemed that this would be the end of the conflict but king christian who also held lands in the empire was concerned the protestants would be persecuted. States in the holy roman empire make peace leaving only sweden against the emperor in spain the dutch were still. The french declared war on spain in 1635 in the holy roman empire the next year which began the french phase of the war richelieu had a clever strategy during the war which was to not only fight.
                         </div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <form action="" method="post">
-						<input type="text" id="fname" name="url" placeholder="Please paste your URL"> 
+						<input type="text" id="fname" name="url" placeholder="Please paste your URL">
 						<input style="border-radius: 20%;" type="submit" name="upvote" value="Start" />
 						<input style="border-radius: 20%;" type="submit" name="downvote" value="Clean video" />
 					</form>
                 </td>
                 <td class="sum_text">
-                    
+                        <img src="{{url_for('static', filename='img/capture.jpeg')}}" style="width:256px;height:140px; margin-left: 20%" onclick={player.seekTo({{frame_ts}});}> </td>
                 </td>
             </tr>
         </table>
@@ -74,11 +74,11 @@
 		<script>
 			// 2. This code loads the IFrame Player API code asynchronously.
 			var tag = document.createElement('script');
-		
+
 			tag.src = "https://www.youtube.com/iframe_api";
 			var firstScriptTag = document.getElementsByTagName('script')[0];
 			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-		
+
 			// 3. This function creates an <iframe> (and YouTube player)
 			//    after the API code downloads.
 			var player;
@@ -87,21 +87,21 @@
 				height: '195',
 				width: '320',
 				{% if video_url %}
-           			 videoId: '{{  video_url }}',
+           			 videoId: 'EBLVzdvp8qE',
       			{% endif %}
 				events: {
 				'onReady': onPlayerReady
 				}
 			});
 			}
-		
+
 			// 4. The API will call this function when the video player is ready.
 			function onPlayerReady(event) {
 				// {% if video_url %}
 				// 	event.target.loadVideoById({{ video_url }});
 				// {% endif %}
 			}
-		
+
 			// 5. The API calls this function when the player's state changes.
 			//    The function indicates that when playing a video (state=1),
 			//    the player should play for six seconds and then stop.
