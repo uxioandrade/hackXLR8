@@ -142,7 +142,7 @@ def control_f_time_img(yt_url, transcript_from_yt, keyword):
 
     ret, frame = cap.read()
 
-    cv2.imwrite("capture.jpeg", frame)
+    cv2.imwrite("app/capture.jpeg", frame)
 
     return str(timestamp)
 

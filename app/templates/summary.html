@@ -76,8 +76,10 @@
                             </form>
                         </td>
                         <td class="sum_text">
-                            Puede ser que aquí vayan las mierdas de highlights
-                        </td>
+                                {% if content %}
+                                <img src="capture.jpeg" onclick={player.seekTo({{frame_ts}});}> </td>
+                                {{ content }}
+                            {% endif %}
                     </tr>
                 </table>
         
