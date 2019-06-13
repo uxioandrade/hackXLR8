@@ -1,5 +1,5 @@
 import requests
-from app import interface_sum_yt_transcr as i_sum
+from app.srclib import interface_sum_yt_transcr as i_sum
 
 tagtogAPIUrl = "https://www.tagtog.net/-api/documents/v1"
 
@@ -20,4 +20,3 @@ def send_text_to_annotate(url):
     payload = {'text': text_to_annotate}
     response = requests.post(tagtogAPIUrl, params=params, auth=auth, data=payload)
     return response
-    

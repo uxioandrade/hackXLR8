@@ -1,5 +1,6 @@
 ################################################################################
 #   Project: FastForward
+#   File: interface_summ_yt_transcr.py
 #   Authors:
 #           (c) Uxio Garcia Andrade - uxiog21@gmail.com
 #           (c) Xabier Garcia Andrade - xabi.ag.7@gmail.com
@@ -11,7 +12,11 @@
 # Importing libraries
 import sys
 import json
+import re
 import requests
+import numpy as np
+from gensim.summarization.summarizer import summarize
+from gensim.summarization import keywords
 from yt_transcript.youtube_transcript_api._api import YouTubeTranscriptApi as yt
 
 ################################################################################
@@ -63,36 +68,18 @@ def access_youtube_transcript(url):
 ################################################################################
 def transcript_to_text(transcript_list):
     text = ""
+    counter = 0
+    np.random.seed(42)
     for frag in transcript_list:
-        frag_text = frag.get("text")
-        if frag_text != "" and frag_text != " " and frag_text != None:
-            text += " " + frag_text
-
+        text += " " + frag.get("text")
+        if counter>=3:
+            choice = np.random.choice(2,1)[0]
+            if choice:
+                counter = 0
+                text += ".\n"
+        counter += 1
+    text += "."
     return text
-
-
-################################################################################
-#   FUNCTION NAME: summ_bot_call
-#   INPUT:
-#       · text - text of the transcript
-#   OUTPUT:
-#       · summarized text of the transcript
-#   DESCRIPTION:
-#       · It summarizes the given text. For prototype reasons, we are
-#         getting some information from SumamrizeBot API:
-#         https://www.summarizebot.com/summarization_business.html
-################################################################################
-def summ_bot_call(text):
-
-    post_body = bytes(text.encode("utf-8"))
-
-    api_url = "https://www.summarizebot.com/api/summarize?apiKey=ba63c1dc1fae4c04bddc32c6ebae1a4b&size=20&keywords=10&fragments=15&filename=1.txt"
-
-    header = {'Content-Type': "application/octet-stream"}
-    r = requests.post(api_url, headers = header, data = post_body)
-    json_res = r.json()
-
-    return json_res
 
 
 ################################################################################
@@ -117,14 +104,42 @@ def control_f(transcript_from_yt, keyword):
 
     return word_coinc
 
-def summarize_from_url(video_id):
-    lista = access_youtube_transcript(video_id)
-    lista2 = transcript_to_text(lista)
-    summarize = summ_bot_call(lista2)
-    return summarize[0].get("summary")
 
-def get_keywords_from_uril(video_id):
-    lista = access_youtube_transcript(video_id)
-    lista2 = transcript_to_text(lista)
-    summarize = summ_bot_call(lista2)
-    return summarize[1].get("keywords")
+################################################################################
+#   FUNCTION NAME: summ_transcript_keywords
+#   INPUT:
+#       · transcript_list - dictionary of youtube transcripts
+#       · word_counter (optional) - number of words of the summary (default: 100)
+#       · number_keywords (optional) - number of keywords to search (default: 4)
+#   OUTPUT:
+#       · summarize and the list of found keywords
+#   DESCRIPTION:
+#       · It uses several machine learning algorithms in order to summarize a
+#         given transcript and detect the keywords of the summary
+################################################################################
+def summ_transcript_keywords(transcript_list , word_counter = 100 , number_keywords = 4):
+
+    lista = transcript_to_text(transcript_list)
+
+    summary = summarize(lista , word_count = word_counter).capitalize()
+    re.sub(r"(?:^|(?:[.!?'\n']\s+))(.)",lambda m: m.group(0).upper(), summary)
+    keywords_list = keywords(lista , words = number_keywords , lemmatize=True)
+
+    return summary, keywords_list
+
+
+def summarize_from_url(url=None):
+    transcript = access_youtube_transcript(url)
+
+    return summ_transcript_keywords(transcript)
+
+# Testing
+if __name__ == "__main__":
+    videoId_example = "https://www.youtube.com/watch?v=U51MSK6nSQE"
+    lst = access_youtube_transcript(videoId_example)
+    print("SUMMARY:")
+    print(summ_transcript_keywords(lst)[0])
+    print("KEYWORDS:")
+    print(summ_transcript_keywords(lst)[1])
+    print("LIST OF KEYWORD(0) APPEARENCES:")
+    print(control_f(lst, summ_transcript_keywords(lst)[1][0]))
