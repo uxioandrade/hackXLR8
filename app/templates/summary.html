@@ -77,7 +77,7 @@
                         </td>
                         <td class="sum_text">
                                 {% if content %}
-                                <img src="capture.jpeg" onclick={player.seekTo({{frame_ts}});}> </td>
+                                <img src="{{url_for('static', filename='img/capture.jpeg')}}" style="width:256px;height:140px; margin-left: 20%" onclick={player.seekTo({{frame_ts}});}> </td>
                                 {{ content }}
                             {% endif %}
                     </tr>
