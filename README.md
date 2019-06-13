@@ -1,6 +1,5 @@
-FastForward
-===========
-*Video analytics*
+FastForward: Video analytics
+=================================
 
 In today's world, a lot of information is presented in video format. 
 
@@ -10,7 +9,7 @@ But what if you could access that information before hitting the play button?
 
 What if you could read a text summary, or jump straight to the interesting part?
 
-## But what does it do, exactly?
+## What does it do, exactly?
 
 FastForward extracts information from speech in video files and generates a summary of the contents of the video, the key ideas presented within, as well as links to the most important parts. For this prototype, we are using YouTube videos. Just find one with subtitles and paste the URL in the text box on the site.
 
