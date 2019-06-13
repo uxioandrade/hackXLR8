@@ -77,7 +77,7 @@
 		height: '390',
 		width: '640',
         {% if video_url %}
-            videoId: {{  video_url }},
+            videoId: '{{  video_url }}',
         {% endif %}
 		events: {
 		'onReady': onPlayerReady
@@ -87,7 +87,9 @@
 
 	// 4. The API will call this function when the video player is ready.
 	function onPlayerReady(event) {
-	// event.target.playVideo()
+        // {% if video_url %}
+    	//     event.target.loadVideoById({{ video_url }});
+        // {% endif %}
 	}
 
 	// 5. The API calls this function when the player's state changes.
