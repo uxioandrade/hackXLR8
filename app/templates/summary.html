@@ -21,12 +21,12 @@
             <!--{% if current_user.is_authenticated %}
                   <h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
             {% endif %}-->
-            <table style="height:100%; width:100%;caption-side: bottom; margin-bottom: 10%;border: 2px solid red">
-                <caption >
+            <table style="height:100%; width:100%;caption-side: bottom; margin-bottom: 10%;">
+                <caption style="text-align: center; margin-left: 0%">
                         <div class="item" style="position: relative;bottom: 0x;
                         left: 0; height:400px;width:500px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
                                 {% if claves %}
-                                keywords {{ claves }}
+                                The keywords of the video are: {{ claves }}
                             {% endif %}
                         </div>
                 </caption>
@@ -47,11 +47,11 @@
                             <div style="font-family: Roboto;
                             font-size: 43px;
                             line-height: 50.390625px;
-                            text-align: CENTER;
                             color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);
                             display: grid;
                             grid-template-columns: 450px 450px;
-                            margin-top: 0rem;">
+                            margin-top: 0rem;
+                            margin-right: 100px">
                                         Summary
                                 </div>
                         </th>
@@ -59,7 +59,7 @@
                     <tr>
                         <td><div id="player"></div></td>
                         <td>
-                                <div class="item" style="overflow-y: scroll; height:400px;width:500px;margin-right: 50px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                                <div class="item" style=" height:400px;width:30%;margin-right: -30%;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
                                         {% if content %}
                                         <!-- The summary of the video is  -->
                                         {{ content }}
