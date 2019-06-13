@@ -105,6 +105,22 @@ def control_f(transcript_from_yt, keyword):
     return word_coinc
 
 
+def _summary_caps(summary_str):
+    summary = list(summary_str)
+    length = len(summary)
+    i = 0
+    while(i<length):
+        if summary[i] == '.':
+            while(i<length):
+                i += 1
+                if i == length:
+                    break
+                if summary[i].isalpha():
+                    summary[i] = summary[i].upper()
+                    break
+        i+=1
+    return "".join(summary)
+
 ################################################################################
 #   FUNCTION NAME: summ_transcript_keywords
 #   INPUT:
@@ -125,13 +141,14 @@ def summ_transcript_keywords(transcript_list , word_counter = 100 , number_keywo
     re.sub(r"(?:^|(?:[.!?'\n']\s+))(.)",lambda m: m.group(0).upper(), summary)
     keywords_list = keywords(lista , words = number_keywords , lemmatize=True)
 
-    return summary, keywords_list
+    return _summary_caps(summary), keywords_list
 
 
 def summarize_from_url(url=None):
     transcript = access_youtube_transcript(url)
 
     return summ_transcript_keywords(transcript)
+
 
 # Testing
 if __name__ == "__main__":
