@@ -13,8 +13,10 @@
 import sys
 import json
 import re
+import cv2
 import requests
 import numpy as np
+import youtube_dl
 from gensim.summarization.summarizer import summarize
 from gensim.summarization import keywords
 from yt_transcript.youtube_transcript_api._api import YouTubeTranscriptApi as yt
@@ -93,7 +95,7 @@ def transcript_to_text(transcript_list):
 #       · It looks for all the keyword appeareances and stores its timestamps
 #         in a list that it's returned
 ################################################################################
-def control_f(transcript_from_yt, keyword):
+def all_control_f(transcript_from_yt, keyword):
     #converting everything to capital letters to avoid case sensitivity
     word = keyword.upper()
     word_coinc = []
@@ -103,6 +105,47 @@ def control_f(transcript_from_yt, keyword):
             word_coinc.append(dictionary.get("start"))
 
     return word_coinc
+
+
+def control_f_time_img(yt_url, transcript_from_yt, keyword):
+    word_coinc = all_control_f(transcript_from_yt, keyword)
+    index = len(word_coinc)//2
+    timestamp = np.floor(word_coinc[index])
+
+    new_url = yt_url+"&t="+str(timestamp)+"s"
+
+    ydl_opts = {}
+
+    # create youtube-dl object
+    ydl = youtube_dl.YoutubeDL(ydl_opts)
+
+    # set video url, extract video information
+    info_dict = ydl.extract_info(new_url, download=False)
+
+    # get video formats available
+    formats = info_dict.get('formats',None)
+
+    format = formats[-1]
+
+    the_url = format.get('url', None)
+
+    # open url with opencv
+    cap = cv2.VideoCapture(the_url)
+
+    # check if url was opened
+    if not cap.isOpened():
+        print('video not opened')
+        exit(-1)
+
+    # choose desired frame
+    cap.set(cv2.CAP_PROP_POS_MSEC, timestamp*1000)
+
+    ret, frame = cap.read()
+
+    cv2.imwrite("capture.jpeg", frame)
+
+    return str(timestamp)
+
 
 
 def _summary_caps(summary_str):
@@ -146,8 +189,8 @@ def summ_transcript_keywords(transcript_list , word_counter = 100 , number_keywo
 
 def summarize_from_url(url=None):
     transcript = access_youtube_transcript(url)
-
-    return summ_transcript_keywords(transcript)
+    summary, keywords_list = summ_transcript_keywords(transcript)
+    return summary, keywords_list, transcript
 
 
 # Testing
