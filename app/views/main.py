@@ -20,10 +20,11 @@ def index():
     elif(request.method == 'POST'):
         if(request.form.get('upvote')):
             link = request.form['url']
-            summary_text, keywords = i_sum.summarize_from_url(link)
+            summary_text, keywords, transcript = i_sum.summarize_from_url(link)
+            timestamp_keyword0 = i_sum.control_f_time_img(link, transcript, keywords[0])
             # keywords = i_sum.get_keywords_from_uril(link)
             video_id = i_sum.parse_url(link)
-            return render_template('summary.html',content=summary_text,claves=keywords,video_url=video_id)
+            return render_template('summary.html',content=summary_text,claves=keywords,video_url=video_id,frame_ts=timestamp_keyword0)
         else:
             return render_template('index.html', title='Home')
     else:
