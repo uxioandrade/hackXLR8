@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% import "macros.html" as m %}
 <html lang="en">
-	<body id="container">
+	<body id="container" style="background: #1E2930;">
    		<div id="header">
    			{% block head %}
 				<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
@@ -26,9 +26,12 @@
 				  	{{ m.nav_link('index', 'Home') }}
 				  	{{ m.nav_link('map', 'Map') }}
 					{{ m.nav_link('tagtog', 'Tagtog') }}
+					<div class="item" style="text-align: CENTER;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+							<a class="logo for the team"></a>Logo</a>
+						</div>
 				 	<div class="right menu">
 				 		<!-- User is logged in -->
-				      	{% if current_user.is_authenticated %}
+						  {% if current_user.is_authenticated %}
 				      		<div class="item">
 				        		<a class="ui primary button" href="/user/account">{{ current_user.full_name }}</a>
 				    		</div>
@@ -36,7 +39,7 @@
 				        		<a class="ui default button" href="/user/signout">Sign out</a>
 				    		</div>
 			          	<!-- User is not logged in -->
-			          	{% else %}
+						  {% else %}
 			          		<div class="item">
 				        		<a class="ui primary button" href="/user/signin">Sign in</a>
 				    		</div>

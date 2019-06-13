@@ -22,7 +22,8 @@ def index():
             link = request.form['url']
             summary_text = i_sum.summarize_from_url(link)
             keywords = i_sum.get_keywords_from_uril(link)
-            return render_template('summary.html',content=summary_text,claves=keywords)
+            video_id = i_sum.parse_url(link)
+            return render_template('summary.html',content=summary_text,claves=keywords,video_url=video_id)
         else:
             return render_template('index.html', title='Home')
     else:

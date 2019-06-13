@@ -12,28 +12,99 @@
 	  	<h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
 	{% endif %}-->
 
-	<form>
-            <label for="url">URL</label>
-              <form action="/index" method="POST">
-            </form>
-            <form action="" method="post">
-                    <input type="text" id="fname" name="url">  
-                    <input type="submit" name="upvote" value="Start" />
-                </form>
-    
-            <form action="" method="post">
-                <input type="submit" name="downvote" value="Clean video" />
-            </form>
-        </form>
-    
-    
-        
-    {% if content %}
-        <h3>The summary of the video is {{ content }}</h3>
-    {% endif %}
+	<table style="width:100%">
+            <tr>
+                <th>
+                    <div class="item" style="font-family: Roboto; font-size: 43px; line-height: 50.390625px;text-align: CENTER;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                        Online video
+                    </div>
+                </th>
+                <th>
+                        <div class="item" style="font-family: Roboto; font-size: 43px; line-height: 50.390625px;text-align: CENTER;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                                Summary
+                        </div>
+                </th>
+            </tr>
+            <tr>
+                <td><div id="player"></div></td>
+                <td>
+                        <div class="item" style="overflow-y: scroll; position: absolute; right: 0px; height:400px;width:500px;margin-right: 50px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                            {% if content %}
+                                The summary of the video is {{ content }}
+                            {% endif %}
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="url">URL</label>
+                    <form action="" method="post">
+                            <input type="text" id="fname" name="url">  
+                            <input type="submit" name="upvote" value="Start" />
+                            <input type="submit" name="downvote" value="Clean video" />
+                    </form>
+                </td>
+                <td>
+                    Puede ser que aquí vayan las mierdas de highlights
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="item" style="position: absolute;bottom: 0;
+                    left: 0; height:400px;width:500px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                            {% if claves %}
+                            keywords {{ claves }}
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+        </table>
 
-    {% if claves %}
-        <p>viva españa</p>
-        <h4>keywords {{ claves }}</h3>
-    {% endif %}
+
+<script>
+	// 2. This code loads the IFrame Player API code asynchronously.
+	var tag = document.createElement('script');
+
+	tag.src = "https://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+	// 3. This function creates an <iframe> (and YouTube player)
+	//    after the API code downloads.
+	var player;
+	function onYouTubeIframeAPIReady() {
+	player = new YT.Player('player', {
+        height: '195',
+        width: '320',
+        {% if video_url %}
+            videoId: '{{  video_url }}',
+        {% endif %}
+		events: {
+		'onReady': onPlayerReady
+		}
+	});
+	}
+
+	// 4. The API will call this function when the video player is ready.
+	function onPlayerReady(event) {
+        // {% if video_url %}
+    	//     event.target.loadVideoById({{ video_url }});
+        // {% endif %}
+	}
+
+	// 5. The API calls this function when the player's state changes.
+	//    The function indicates that when playing a video (state=1),
+	//    the player should play for six seconds and then stop.
+	var done = false;
+	// function onPlayerStateChange(event) {
+	// if (event.data == YT.PlayerState.PLAYING && !done) {
+	//     setTimeout(stopVideo, 6000);
+	//     done = true;
+	// }
+	// }
+	function stopVideo() {
+	player.stopVideo();
+	}
+</script>
+
 {% endblock %}
