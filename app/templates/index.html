@@ -6,19 +6,44 @@
 
 {% block content %}
 
+<head>
+		<!-- Stylesheet -->
+		<meta charset="UTF-8">
+		<title>FastForward</title>
+</head>
+
 	<!--{% if current_user.is_authenticated %}
 	  	<h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
 	{% endif %}-->
-
-	<table style="width:100%">
+	<table style="height:100%; width:100%;caption-side: bottom; margin-bottom: 10%;">
+		<caption >
+				<div class="item" style="position: relative;bottom: 0x;
+				left: 0; height:400px;width:500px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+						
+				</div>
+		</caption>
             <tr>
                 <th>
-                    <div class="item" style="font-family: Roboto; font-size: 43px; line-height: 50.390625px;text-align: CENTER;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+                    <div style="font-family: Roboto;
+					font-size: 43px;
+					line-height: 50.390625px;
+					text-align: CENTER;
+					color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);
+					display: grid;
+					grid-template-columns: 450px 450px;
+					margin-top: 0rem;">
                         Online video
                     </div>
                 </th>
                 <th>
-                        <div class="item" style="font-family: Roboto; font-size: 43px; line-height: 50.390625px;text-align: CENTER;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+					<div style="font-family: Roboto;
+					font-size: 43px;
+					line-height: 50.390625px;
+					text-align: CENTER;
+					color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);
+					display: grid;
+					grid-template-columns: 450px 450px;
+					margin-top: 0rem;">
                                 Summary
                         </div>
                 </th>
@@ -26,30 +51,21 @@
             <tr>
                 <td><div id="player"></div></td>
                 <td>
-						<div class="item" style="overflow-y: scroll; position: absolute; right: 0px; height:400px;width:500px;margin-right: 50px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
+						<div class="item" style="overflow-y: scroll; height:400px;width:500px;margin-right: 50px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
 							Resumen
                         </div>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="url">URL</label>
                     <form action="" method="post">
-                            <input type="text" id="fname" name="url">  
-                            <input type="submit" name="upvote" value="Start" />
-                            <input type="submit" name="downvote" value="Clean video" />
-                    </form>
+						<input type="text" id="fname" name="url" placeholder="Please paste your URL"> 
+						<input style="border-radius: 20%;" type="submit" name="upvote" value="Start" />
+						<input style="border-radius: 20%;" type="submit" name="downvote" value="Clean video" />
+					</form>
                 </td>
-                <td>
+                <td class="sum_text">
                     Puede ser que aquí vayan las mierdas de highlights
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="item" style="position: absolute;bottom: 0;
-                    left: 0; height:400px;width:500px;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
-                            keywords
-                    </div>
                 </td>
             </tr>
         </table>

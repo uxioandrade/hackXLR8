@@ -57,3 +57,14 @@ body {
    text-align: CENTER; 
    color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);
 }
+
+.submit-input {
+   background-color: #1e90ff; /* Green */
+   border: none;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+ }

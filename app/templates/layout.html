@@ -26,9 +26,7 @@
 				  	{{ m.nav_link('index', 'Home') }}
 				  	{{ m.nav_link('map', 'Map') }}
 					{{ m.nav_link('tagtog', 'Tagtog') }}
-					<div class="item" style="text-align: CENTER;color : rgba(186.73436790704727, 190.66562175750732, 196.5624949336052, 1);">
-							<a class="logo for the team"></a>Logo</a>
-						</div>
+					<img src="{{url_for('static', filename='img/logo.png')}}" style="width:70px;height:70px; margin-left: 30%"/>
 				 	<div class="right menu">
 				 		<!-- User is logged in -->
 						  {% if current_user.is_authenticated %}
