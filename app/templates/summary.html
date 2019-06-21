@@ -11,13 +11,13 @@
 	<!--{% if current_user.is_authenticated %}
 	  	<h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
 	{% endif %}-->
-        
+
         <head>
                 <!-- Stylesheet -->
                 <meta charset="UTF-8">
                 <title>FastForward</title>
         </head>
-        
+
             <!--{% if current_user.is_authenticated %}
                   <h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
             {% endif %}-->
@@ -70,19 +70,18 @@
                     <tr>
                         <td>
                             <form action="" method="post">
-                                <input type="text" id="fname" name="url" placeholder="Please paste your URL"> 
+                                <input type="text" id="fname" name="url" placeholder="Please paste your URL">
                                 <input style="border-radius: 20%;" type="submit" name="upvote" value="Start" />
                                 <input style="border-radius: 20%;" type="submit" name="downvote" value="Clean video" />
                             </form>
                         </td>
                         <td class="sum_text">
                                 {% if content %}
-                                <img src="capture.jpeg" onclick={player.seekTo({{frame_ts}});}> </td>
-                                {{ content }}
+                                <img src="{{url_for('static', filename='img/capture.jpeg')}}" style="width:256px;height:140px; margin-left: 20%" onclick={player.seekTo({{frame_ts}});}> </td>
                             {% endif %}
                     </tr>
                 </table>
-        
+
 
 <script>
 	// 2. This code loads the IFrame Player API code asynchronously.
