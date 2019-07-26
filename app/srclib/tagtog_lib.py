@@ -3,7 +3,7 @@ from app.srclib import interface_sum_yt_transcr as i_sum
 
 tagtogAPIUrl = "https://www.tagtog.net/-api/documents/v1"
 
-auth = requests.auth.HTTPBasicAuth(username='uxioandrade', password='lalin2019')
+auth = requests.auth.HTTPBasicAuth(username='uxioandrade', password='')
 
 project_name = "hack_test2"
 project_owner = "uxioandrade"
