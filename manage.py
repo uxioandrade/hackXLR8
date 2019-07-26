@@ -31,5 +31,6 @@ def dropdb():
 manager.add_command('runserver', Server())
 manager.add_command('shell', Shell(make_context=make_shell_context))
 
+#run python3 manage.py runserver to start the app
 if __name__ == '__main__':
     manager.run()
